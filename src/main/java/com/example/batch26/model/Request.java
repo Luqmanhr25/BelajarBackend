@@ -21,13 +21,11 @@ public class Request{
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    @Column(name = "employeeid")
+    @JoinColumn(name = "employeeid", nullable=false)
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    @Column(name = "assetid")
+    @JoinColumn(name = "assetid", nullable=false)
     private Asset asset;
 
     @Column(name = "requestdate")
@@ -40,8 +38,7 @@ public class Request{
     private String endDate;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    @Column(name = "approveby")
+    @JoinColumn(name = "approveby", nullable=false)
     private Employee approveBy;
 
     @Column(name = "returndate")
@@ -50,7 +47,7 @@ public class Request{
     @Column(name = "UpdateOn")
     private String updateOn;
 
-    @OneToMany(mappedBy="requestid")
+    @OneToMany(mappedBy="requestId")
     private Set<Progress> progress;
 
     public Set<Progress> getProgress(){

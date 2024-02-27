@@ -1,0 +1,24 @@
+<html>
+<head></head>
+<body>
+    <a th:href="@{role/form}">CREATE</a>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="role : ${roles}">
+                    <td th:text="${role.id}"></td>
+                    <td th:text="${role.name}"></td>
+                    <td>Edit | Delete</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,8 +1,10 @@
 package com.example.batch26.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -11,48 +13,63 @@ import javax.persistence.Table;
 @Table(name = "tb_m_progress")
 public class Progress{
    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    private Request requestid;
+    @JoinColumn(name = "requestid", nullable=false)
+    private Request requestId;
+
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    private Status statusid;
+    @JoinColumn(name = "statusid", nullable=false)
+    private Status statusId;
+
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    private Employee progressby;
-    private String progressdate;
+    @JoinColumn(name = "progressby", nullable=false)
+    private Employee progressBy;
 
+    @Column(name = "progressdate")
+    private String progressDate;
 
-    public Request getRequestid(){
-        return requestid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setRequestid(Request requestid){
-        this.requestid = requestid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Status getStatusid(){
-        return statusid;
+    public Request getRequestId(){
+        return requestId;
     }
 
-    public void setStatusid(Status statusid){
-        this.statusid = statusid;
+    public void setRequestId(Request requestId){
+        this.requestId = requestId;
     }
 
-    public Employee getProgressby(){
-        return progressby;
+    public Status getStatusId(){
+        return statusId;
     }
 
-    public void setProgressby(Employee progressby){
-        this.progressby = progressby;
+    public void setStatusId(Status statusId){
+        this.statusId = statusId;
     }
 
-    public String getProgressdate(){
-        return progressdate;
+    public Employee getProgressBy(){
+        return progressBy;
     }
 
-    public void setProgressdate(String progressdate){
-        this.progressdate = progressdate;
+    public void setProgressBy(Employee progressBy){
+        this.progressBy = progressBy;
+    }
+
+    public String getProgressDate(){
+        return progressDate;
+    }
+
+    public void setProgressDate(String progressDate){
+        this.progressDate = progressDate;
     }
 
 }

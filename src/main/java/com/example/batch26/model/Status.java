@@ -17,7 +17,7 @@ public class Status{
     private Integer id;
     private String name;
 
-    @OneToMany(mappedBy="statusid")
+    @OneToMany(mappedBy="statusId")
     private Set<Progress> progress;
 
     public Set<Progress> getProgress(){

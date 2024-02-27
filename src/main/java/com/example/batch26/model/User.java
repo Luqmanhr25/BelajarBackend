@@ -2,6 +2,7 @@ package com.example.batch26.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 // import javax.persistence.GeneratedValue;
 // import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
@@ -12,9 +13,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_m_users")
 public class User{
+    @Id
+    private Integer id;
+
     @OneToOne
-    @JoinColumn(name = "id", nullable=false)
-    @Column(name = "employeeid")
+    @JoinColumn(name = "employeeid", nullable=false, referencedColumnName = "id")
     private Employee employee;
 
     @Column(name = "email")
@@ -24,12 +27,19 @@ public class User{
     private String password;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    @Column(name = "roleid")
+    @JoinColumn(name = "roleid", nullable=false)
     private Role role;
 
     @Column(name = "active")
     private Integer active;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Employee getEmployeeId(){
         return employee;

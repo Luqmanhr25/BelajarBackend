@@ -37,9 +37,6 @@ public class Employee{
     @Column(name = "joindate")
     private String joinDate;
 
-    @Column(name = "active")
-    private Integer active;
-
     @OneToMany(mappedBy="borrowedBy")
     private Set<Asset> asset;
 
@@ -62,7 +59,7 @@ public class Employee{
         this.requestEmployee = requestEmployee;
     }
 
-    @OneToMany(mappedBy="approveby")
+    @OneToMany(mappedBy="approveBy")
     private Set<Request> requestApprove;
 
     public Set<Request> getRequestApprove(){
@@ -73,7 +70,7 @@ public class Employee{
         this.requestApprove = requestApprove;
     }
 
-    @OneToMany(mappedBy="progressby")
+    @OneToMany(mappedBy="progressBy")
     private Set<Progress> progress;
 
     public Set<Progress> getProgress(){
@@ -85,15 +82,7 @@ public class Employee{
     }
 
     @OneToOne(mappedBy="employee")
-    private Set<User> users;
-
-    public Set<User> getUsers(){
-        return users;
-    }
-
-    public void setUsers(Set<User> users){
-        this.users = users;
-    }
+    private User user;
 
     public Integer getId(){
         return id;
@@ -149,14 +138,6 @@ public class Employee{
 
     public void setJoinDate(String joinDate){
         this.joinDate = joinDate;
-    }
-
-    public Integer getActive(){
-        return active;
-    }
-
-    public void setActive(Integer active){
-        this.active = active;
     }
 
 }

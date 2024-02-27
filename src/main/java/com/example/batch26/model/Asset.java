@@ -27,8 +27,7 @@ public class Asset{
     private String specification;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    @Column(name = "categoryid")
+    @JoinColumn(name = "categoryid", nullable=false)
     private Category category;
 
     @Column(name = "borrow_limit")
@@ -38,8 +37,7 @@ public class Asset{
     private Integer available;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable=false)
-    @Column(name="borrowedby")
+    @JoinColumn(name = "borrowedby", nullable=false)
     private Employee borrowedBy;
 
     @Column(name = "discontinued")
