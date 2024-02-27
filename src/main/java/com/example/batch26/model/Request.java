@@ -107,7 +107,7 @@ public class Request{
     }
 
     public void setEndDate(String endDate){
-        this.endDate = endDate;
+        this.endDate = endDates;
     }
 
     public Employee getApproveBy(){
